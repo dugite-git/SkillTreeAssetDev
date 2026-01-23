@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace SkillTreeMaker.Model.Skill
 {
-    public class SkillTreeContainer : ScriptableObject
+    public class SkillTree : ScriptableObject
     {
-        private List<(int skillTreeId, List<SkillNode> skillNodes)> skillTrees = new List<(int, List<SkillNode>)>();
-        public List<(int skillTreeId, List<SkillNode> skillNodes)> SkillTrees => skillTrees;
-
+        private List<SkillNode> skillNodes = new List<SkillNode>();
     }
 }
