@@ -8,14 +8,14 @@ namespace SkillTreeMaker.Model.Skill
         private string skillName;
         private string description;
         private Sprite icon;
-        private List<SkillAttribute> customPrerequisite = new List<SkillAttribute>();
-        private List<SkillAttribute> skillBenefit = new List<SkillAttribute>();
+        private List<SkillAttribute> customPrerequisites = new List<SkillAttribute>();
+        private List<SkillAttribute> skillBenefits = new List<SkillAttribute>();
 
         public string SkillName => skillName;
         public string Description => description;
         public Sprite Icon => icon;
-        public List<SkillAttribute> CustomConditions => customPrerequisite;
-        public List<SkillAttribute> SkillBenefits => skillBenefit;
+        public List<SkillAttribute> CustomConditions => customPrerequisites;
+        public List<SkillAttribute> SkillBenefits => skillBenefits;
 
         public void SetSkillName(string name)
         {
@@ -31,11 +31,11 @@ namespace SkillTreeMaker.Model.Skill
         }
         public void AddCustomPrerequisite(SkillAttribute attribute)
         {
-            customPrerequisite.Add(attribute);
+            customPrerequisites.Add(attribute);
         }
         public void AddSkillBenefit(SkillAttribute attribute)
         {
-            skillBenefit.Add(attribute);
+            skillBenefits.Add(attribute);
         }
     }
 }
