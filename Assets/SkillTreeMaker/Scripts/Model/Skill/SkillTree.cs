@@ -10,29 +10,5 @@ namespace SkillTreeMaker.Model.Skill
         private List<(int GroupIndex, List<SkillNode> Skills)> alternativeSkillGroups = new List<(int, List<SkillNode>)>();
 
         public int Id => id;
-        public List<SkillNode> GetAvailableSkills()
-        {
-            List<SkillNode> availableSkills = new List<SkillNode>();
-            foreach (var node in skillNodes)
-            {
-                if (node.IsAvailable(alternativeSkillGroups))
-                {
-                    availableSkills.Add(node);
-                }
-            }
-            return availableSkills;
-        }
-
-        public SkillNode GetSkillById(int id)
-        {
-            foreach (var node in skillNodes)
-            {
-                if (node.Id == id)
-                {
-                    return node;
-                }
-            }
-            return null;
-        }
     }
 }

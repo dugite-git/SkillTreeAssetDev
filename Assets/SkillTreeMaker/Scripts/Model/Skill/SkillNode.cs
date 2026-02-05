@@ -6,71 +6,32 @@ namespace SkillTreeMaker.Model.Skill
     public class SkillNode : ScriptableObject
     {
         private int id;
-        private SkillDetail detail;
-        private bool isRoot;
-        private bool isActive;
-        private bool isAltSkill;
-        private int altGroupIndex;
-        private bool hasPrerequisiteCondition;
-        private List<SkillNode> connectedSkills = new List<SkillNode>();
-        private (bool isAllNeeded, List<SkillNode> Skills) prerequisiteCondition = (false, new List<SkillNode>());
-
+        private string skillName;
+        private string description;
+        private Sprite icon;
+        private List<SkillAttribute> skillBenefits = new List<SkillAttribute>();
 
         public int Id => id;
-        public SkillDetail Detail => detail;
-        public bool IsRoot => isRoot;
-        public bool IsActive => isActive;
-        public bool IsAltSkill => isAltSkill;
-        public int AltGroupIndex => altGroupIndex;
-        public bool HasPrerequisiteCondition => hasPrerequisiteCondition;
-        public List<SkillNode> ConnectedSkills => connectedSkills;
-        public (bool isAllNeeded, List<SkillNode> Skills) PrerequisiteCondition => prerequisiteCondition;
+        public string SkillName => skillName;
+        public string Description => description;
+        public Sprite Icon => icon;
+        public List<SkillAttribute> SkillBenefits => skillBenefits;
 
-        public bool IsAvailable(List<(int GroupIndex, List<SkillNode> Skills)> alternativeSkillGroups)
+        public void SetSkillName(string name)
         {
-            if (isActive) return false;
-            if (isRoot) return true;
-            if (isAltSkill)
-            {
-                var group = alternativeSkillGroups.Find(g => g.GroupIndex == altGroupIndex);
-                foreach (var skill in group.Skills)
-                {
-                    if (skill.isActive)
-                        return false;
-                }
-            }
-            if(hasPrerequisiteCondition)
-            {
-                if(prerequisiteCondition.isAllNeeded)
-                {
-                    foreach(var skill in prerequisiteCondition.Skills)
-                    {
-                        if (!skill.isActive)
-                            return false;
-                    }
-                    return true;
-                }
-                else
-                {
-                    foreach(var skill in prerequisiteCondition.Skills)
-                    {
-                        if (skill.isActive)
-                            return true;
-                    }
-                    return false;
-                }
-            }
-            else
-            {
-                foreach (var skill in connectedSkills)
-                {
-                    if (skill.isActive)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
+            skillName = name;
+        }
+        public void SetDescription(string desc)
+        {
+            description = desc;
+        }
+        public void SetIcon(Sprite iconSprite)
+        {
+            icon = iconSprite;
+        }
+        public void AddSkillBenefit(SkillAttribute attribute)
+        {
+            skillBenefits.Add(attribute);
         }
     }
 }
