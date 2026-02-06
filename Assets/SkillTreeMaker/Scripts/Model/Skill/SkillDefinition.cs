@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace SkillTreeMaker.Model.Skill
 {
-    public class SkillNode : ScriptableObject
+    public class SkillDefinition : ScriptableObject
     {
         private int id;
         private string skillName;
         private string description;
         private Sprite icon;
-        private List<SkillAttribute> skillBenefits = new List<SkillAttribute>();
+        private List<CustomField> benefits = new List<CustomField>();
 
         public int Id => id;
         public string SkillName => skillName;
         public string Description => description;
         public Sprite Icon => icon;
-        public List<SkillAttribute> SkillBenefits => skillBenefits;
+        public List<CustomField> Benefits => benefits;
 
         public void SetSkillName(string name)
         {
@@ -29,9 +29,9 @@ namespace SkillTreeMaker.Model.Skill
         {
             icon = iconSprite;
         }
-        public void AddSkillBenefit(SkillAttribute attribute)
+        public void AddSkillBenefit(CustomField attribute)
         {
-            skillBenefits.Add(attribute);
+            benefits.Add(attribute);
         }
     }
 }

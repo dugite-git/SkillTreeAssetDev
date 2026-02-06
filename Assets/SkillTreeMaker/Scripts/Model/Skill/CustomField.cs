@@ -1,13 +1,13 @@
 namespace SkillTreeMaker.Model.Skill
 {
-    public class SkillAttribute
+    public class CustomField
     {
         private string name;
         private System.Type type;
         private object value = null;
         private bool isUsed = false;
 
-        public SkillAttribute(string name, System.Type type)
+        public CustomField(string name, System.Type type)
         {
             this.name = name;
             this.type = type;
