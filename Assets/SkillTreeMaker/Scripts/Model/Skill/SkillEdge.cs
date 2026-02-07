@@ -17,9 +17,23 @@ namespace SkillTreeMaker.Model.Skill
         {
             connectedNodes.Add(node);
         }
-        public void AddAlternativeNodeGroup(int groupIndex, List<SkillNode> nodes)
+        public void AddAlternativeNodeToGroup(int groupIndex, SkillNode node)
         {
-            alternativeNodeGroups.Add((groupIndex, nodes));
+            if (connectedNodes.Contains(node) == false)
+            {
+                throw new System.ArgumentException(
+                    "The specified node is not connected to this edge.",
+                    nameof(node));
+            }
+            var group = alternativeNodeGroups.FirstOrDefault(g => g.GroupIndex == groupIndex);
+            if (group.Nodes != null)
+            {
+                group.Nodes.Add(node);
+            }
+            else
+            {
+                alternativeNodeGroups.Add((groupIndex, new List<SkillNode> { node }));
+            }
         }
         public List<SkillNode> GetAvailableConnectedNodes(SkillNode node)
         {

@@ -16,6 +16,10 @@ namespace SkillTreeMaker.Model.Skill
         public bool RequiresPreNode => requiresPreNode;
         public List<SkillEdge> ConnectedEdges => connectedEdges;
 
+        public void SetId(int nodeId)
+        {
+            id = nodeId;
+        }
         public void SetSkillDefinition(SkillDefinition definition)
         {
             skillDefinition = definition;
