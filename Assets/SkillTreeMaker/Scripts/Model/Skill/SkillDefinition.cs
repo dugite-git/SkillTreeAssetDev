@@ -9,7 +9,7 @@ namespace SkillTreeMaker.Model.Skill
         private string skillName;
         private string description;
         private Sprite icon;
-        private List<CustomField> benefits = new List<CustomField>();
+        private List<CustomField> benefits = new();
 
         public int Id => id;
         public string SkillName => skillName;
