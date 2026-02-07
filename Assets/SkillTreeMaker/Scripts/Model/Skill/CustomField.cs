@@ -12,7 +12,6 @@ namespace SkillTreeMaker.Model.Skill
             this.type = type;
             SetValue(value);
         }
-
         public void SetValue(object value)
         {
             if (value.GetType() != type)
