@@ -6,7 +6,7 @@ namespace SkillTreeMaker.SkillTree.Model
 {
     public class SkillEdge
     {
-        private Id id;
+        private Id id = new Id();
         private List<SkillNode> connectedNodes = new();
         private List<(int GroupIndex, List<SkillNode> Nodes)> alternativeNodeGroups = new();
 

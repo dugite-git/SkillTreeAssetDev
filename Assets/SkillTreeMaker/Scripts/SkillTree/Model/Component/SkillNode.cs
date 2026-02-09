@@ -5,7 +5,7 @@ namespace SkillTreeMaker.SkillTree.Model
 {
     public class SkillNode
     {
-        private Id id;
+        private Id id = new Id();
         private SkillDefinition skillDefinition;
         private bool isUnlocked = false;
         private bool requiresPreNode = false;
@@ -63,6 +63,10 @@ namespace SkillTreeMaker.SkillTree.Model
         public void AddPrerequisiteNodeId(Id nodeId)
         {
             prerequisiteNodeIds.Add(nodeId);
+        }
+        public void RemovePrerequisiteNodeId(Id nodeId)
+        {
+            prerequisiteNodeIds.Remove(nodeId);
         }
     }
 }

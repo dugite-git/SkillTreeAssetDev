@@ -6,7 +6,7 @@ namespace SkillTreeMaker.SkillTree.Model
 {
     public class SkillDefinition
     {
-        private Id id;
+        private Id id = new Id();
         private string skillName;
         private string description;
         private Sprite icon;
