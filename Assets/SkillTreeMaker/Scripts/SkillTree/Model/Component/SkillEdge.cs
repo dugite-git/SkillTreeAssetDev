@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
+using SkillTreeMaker.Common;
 
-namespace SkillTreeMaker.Model.Skill
+namespace SkillTreeMaker.SkillTree.Model
 {
     public class SkillEdge
     {
-        private int id;
+        private Id id;
         private List<SkillNode> connectedNodes = new();
         private List<(int GroupIndex, List<SkillNode> Nodes)> alternativeNodeGroups = new();
 
-        public int Id => id;
+        public Id Id => id;
         public List<SkillNode> ConnectedNodes => connectedNodes;
         public List<(int GroupIndex, List<SkillNode> Nodes)> AlternativeNodeGroups => alternativeNodeGroups;
 

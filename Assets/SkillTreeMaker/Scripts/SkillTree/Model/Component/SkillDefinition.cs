@@ -2,17 +2,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using SkillTreeMaker.Common;
 
-namespace SkillTreeMaker.Model.Skill
+namespace SkillTreeMaker.SkillTree.Model
 {
-    public class SkillDefinition : ScriptableObject
+    public class SkillDefinition
     {
-        private int id;
+        private Id id;
         private string skillName;
         private string description;
         private Sprite icon;
         private List<CustomField> benefits = new();
 
-        public int Id => id;
+        public Id Id => id;
         public string SkillName => skillName;
         public string Description => description;
         public Sprite Icon => icon;

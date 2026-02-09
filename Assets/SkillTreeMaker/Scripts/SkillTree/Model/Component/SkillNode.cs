@@ -1,29 +1,29 @@
 using System.Collections.Generic;
 using SkillTreeMaker.Common;
 
-namespace SkillTreeMaker.Model.Skill
+namespace SkillTreeMaker.SkillTree.Model
 {
     public class SkillNode
     {
-        private int id;
+        private Id id;
         private SkillDefinition skillDefinition;
         private bool isUnlocked = false;
         private bool requiresPreNode = false;
         private bool hasPrerequisiteAttributes = false;
         private List<SkillEdge> connectedEdges = new();
-        private List<int> prerequisiteNodeIds = new();
+        private List<Id> prerequisiteNodeIds = new();
         private List<CustomField> prerequisiteAttributes = new();
 
-        public int Id => id;
+        public Id Id => id;
         public SkillDefinition SkillDefinition => skillDefinition;
         public bool IsUnlocked => isUnlocked;
         public bool RequiresPreNode => requiresPreNode;
         public bool HasPrerequisiteAttributes => hasPrerequisiteAttributes;
         public List<SkillEdge> ConnectedEdges => connectedEdges;
         public List<CustomField> PrerequisiteAttributes => prerequisiteAttributes;
-        public List<int> PrerequisiteNodeIds => prerequisiteNodeIds;
+        public List<Id> PrerequisiteNodeIds => prerequisiteNodeIds;
 
-        public void SetId(int nodeId)
+        public void SetId(Id nodeId)
         {
             id = nodeId;
         }
@@ -60,7 +60,7 @@ namespace SkillTreeMaker.Model.Skill
                 hasPrerequisiteAttributes = false;
             }
         }
-        public void AddPrerequisiteNodeId(int nodeId)
+        public void AddPrerequisiteNodeId(Id nodeId)
         {
             prerequisiteNodeIds.Add(nodeId);
         }
