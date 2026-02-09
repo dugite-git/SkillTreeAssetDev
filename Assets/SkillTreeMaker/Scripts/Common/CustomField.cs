@@ -1,4 +1,4 @@
-namespace SkillTreeMaker.Model.Skill
+namespace SkillTreeMaker.Common
 {
     public class CustomField
     {
