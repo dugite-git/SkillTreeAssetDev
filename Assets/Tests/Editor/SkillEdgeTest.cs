@@ -1,5 +1,6 @@
 using NUnit.Framework;
-using SkillTreeMaker.Model.Skill;
+using SkillTreeMaker.SkillTree.Model;
+using UnityEngine;
 
 public class SkillEdgeTests
 {
@@ -12,12 +13,6 @@ public class SkillEdgeTests
         var b = new SkillNode(); // 解除済み想定
         var c = new SkillNode(); // 未解除想定
         var d = new SkillNode(); // 未解除想定
-
-        root.SetId(0);
-        a.SetId(1);
-        b.SetId(2);
-        c.SetId(3);
-        d.SetId(4);
 
         edge.AddConnectedNode(root);
         edge.AddConnectedNode(a);
@@ -34,6 +29,12 @@ public class SkillEdgeTests
         edge.AddAlternativeNodeToGroup(1, d);
 
         var result = edge.GetAvailableConnectedNodesFrom(root);
+
+        Debug.Log("ConectedNodesId:");
+        foreach (var node in edge.ConnectedNodes)
+        {
+            Debug.Log(" - " + node.GetIdValue());
+        }
 
         Assert.IsFalse(result.Contains(root));
         Assert.IsFalse(result.Contains(a));

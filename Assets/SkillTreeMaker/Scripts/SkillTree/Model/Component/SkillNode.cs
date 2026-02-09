@@ -23,9 +23,9 @@ namespace SkillTreeMaker.SkillTree.Model
         public List<CustomField> PrerequisiteAttributes => prerequisiteAttributes;
         public List<Id> PrerequisiteNodeIds => prerequisiteNodeIds;
 
-        public void SetId(Id nodeId)
+        public string GetIdValue()
         {
-            id = nodeId;
+            return id.Value;
         }
         public void SetSkillDefinition(SkillDefinition definition)
         {
