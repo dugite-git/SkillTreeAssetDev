@@ -33,7 +33,7 @@ public class SkillEdgeTests
         edge.AddAlternativeNodeToGroup(1, c);
         edge.AddAlternativeNodeToGroup(1, d);
 
-        var result = edge.GetAvailableConnectedNodes(root);
+        var result = edge.GetAvailableConnectedNodesFrom(root);
 
         Assert.IsFalse(result.Contains(root));
         Assert.IsFalse(result.Contains(a));

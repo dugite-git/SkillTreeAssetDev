@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using SkillTreeMaker.Common;
 
 namespace SkillTreeMaker.Model.Skill
 {

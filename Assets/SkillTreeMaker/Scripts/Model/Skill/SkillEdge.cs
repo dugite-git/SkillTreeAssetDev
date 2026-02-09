@@ -35,7 +35,7 @@ namespace SkillTreeMaker.Model.Skill
                 alternativeNodeGroups.Add((groupIndex, new List<SkillNode> { node }));
             }
         }
-        public List<SkillNode> GetAvailableConnectedNodes(SkillNode node)
+        public List<SkillNode> GetAvailableConnectedNodesFrom(SkillNode node)
         {
             if (!connectedNodes.Contains(node))
                 throw new System.ArgumentException(
